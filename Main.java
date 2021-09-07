@@ -25,6 +25,8 @@ class BinarySearchTree {
 		public Node(int item)
 		{
 			//code here....
+      key = item;
+      left = right = null;
 		}
 	}
 
@@ -48,6 +50,20 @@ class BinarySearchTree {
 	{
 
 		// code here....
+    if (root == null)
+        {
+            root = new Node(key);
+            return root;
+        }
+ 
+        
+        if (key < root.key)
+            root.left = insertRec(root.left, key);
+        else if (key > root.key)
+            root.right = insertRec(root.right, key);
+ 
+       
+        return root;
 		
 	}
 
@@ -61,6 +77,11 @@ class BinarySearchTree {
 	void inorderRec(Node root)
 	{
 		// code here....
+     if (root != null) {
+            inorderRec(root.left);
+            System.out.println(root.key);
+            inorderRec(root.right);
+        }
 	}
 
 
